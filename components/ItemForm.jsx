@@ -28,8 +28,10 @@ export default React.createClass({
   },
 
   componentWillReceiveProps ({ editItem }) {
-    if (editItem) {
+    if (editItem) { 
       this.setState({ item: editItem })
+    } else {
+      this.setState({item: { ...this.itemModel }})
     }
   },
 

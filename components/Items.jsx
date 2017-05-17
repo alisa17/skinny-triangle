@@ -19,9 +19,13 @@ export default React.createClass({
   },
 
   editItem (id) {
-    this.setState({
-      editItem: { ...this.state.items.find(item => item.id === id) }
-    })
+    if (this.state.editItem) {
+      this.setState({editItem:null})
+    } else {
+      this.setState({
+        editItem: { ...this.state.items.find(item => item.id === id) }
+      })
+    }
   },
 
   deleteItem (evt, id) {
