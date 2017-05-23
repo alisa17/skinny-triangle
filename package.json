@@ -27,5 +27,8 @@
       "react",
       "stage-0"
     ]
+  },
+  "dependencies": {
+    "superagent": "^3.5.2"
   }
 }
