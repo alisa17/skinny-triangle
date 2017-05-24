@@ -6,5 +6,5 @@ import App from './components/App'
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  render(<App/>,document.getElementById('app'))
+  render(<App width={window.innerWidth} height={window.innerHeight}/>,document.getElementById('app'))
 })
