@@ -1,9 +1,19 @@
+import React from 'react'
 
-//open componenet
+const urbanApi = props => {
+  return <div>
+    {props.searchTerm}
 
-//constructor, needs state with search term, results array, tags array
+    {props.results.map((result) => {
+      return <div>
+        <li>{result.author}</li>
+        <p>hello</p>
 
-//render a text input
-  //inpput on change sends api request with input string
+      </div>
+    })}
 
-//also render a component that takes the results as props to render the result data
+  </div>
+
+}
+
+export default urbanApi
