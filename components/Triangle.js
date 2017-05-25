@@ -4,8 +4,7 @@ class Triangle extends React.Component {
     constructor(props) {
         super(props);
         const colours = ['red', 'green', 'blue', 'yellow'];
-        this.colour = colours[this.props.data.level % colours.length];
-        //colours[Math.floor(Math.random() * colours.length)]
+        this.colour = colours[Math.floor(Math.random() * colours.length)]
     }
 
     render() {

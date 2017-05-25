@@ -5,7 +5,7 @@ class App extends React.Component {
 
   constructor(props) {
     super(props)
-    this.state = {maxLevel: 1}
+    this.state = {maxLevel: 0}
   }
 
   increaseMaxLevel() {
