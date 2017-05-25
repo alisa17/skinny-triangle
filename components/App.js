@@ -9,15 +9,16 @@ class App extends React.Component {
   }
 
   increaseMaxLevel() {
-        console.log(this.state);
           const newMaxLevel = this.state.maxLevel + 1;
           this.setState({maxLevel: newMaxLevel})
       }
 
       decreaseMaxLevel(){
-            console.log(this.state);
               const newMaxLevel = this.state.maxLevel - 1;
               this.setState({maxLevel: newMaxLevel})
+          }
+      reset(){
+              this.setState({maxLevel: 0})
           }
 
   render() {
@@ -39,6 +40,7 @@ class App extends React.Component {
             </div>
             <button onClick={()=>this.increaseMaxLevel()}> Level Up </button>
             <button onClick={()=>this.decreaseMaxLevel()}> Level Down </button>
+            <button onClick={()=>this.reset()}> Reset </button>
             <button onClick={()=>this.decreaseMaxLevel()}> Auto </button>
         </div>
     )

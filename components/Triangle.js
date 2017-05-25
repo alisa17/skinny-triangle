@@ -25,9 +25,9 @@ function getPoints(minX, maxX, minY, maxY) {
 }
 
 
-function getChild(key, level, maxLevel, minX, maxX, minY, maxY) {
+function getChild(level, maxLevel, minX, maxX, minY, maxY) {
     const data = {level, maxLevel, minX, maxX, minY, maxY};
-    return <Triangle key={key} data={data}/>;
+    return <Triangle data={data}/>;
 }
 
 function getChildren(level, maxLevel, minX, maxX, minY, maxY) {
@@ -38,9 +38,9 @@ function getChildren(level, maxLevel, minX, maxX, minY, maxY) {
     const middleX = (minX + maxX) / 2;
     const middleY = (minY + maxY) / 2;
     return [
-        getChild(0, nextLevel, maxLevel, (minX + middleX) / 2, (middleX + maxX) / 2, minY, middleY),
-        getChild(1, nextLevel, maxLevel, minX, middleX, middleY, maxY),
-        getChild(2, nextLevel, maxLevel, middleX, maxX, middleY, maxY)
+        getChild(nextLevel, maxLevel, (minX + middleX) / 2, (middleX + maxX) / 2, minY, middleY),
+        getChild(nextLevel, maxLevel, minX, middleX, middleY, maxY),
+        getChild(nextLevel, maxLevel, middleX, maxX, middleY, maxY)
     ];
 }
 
