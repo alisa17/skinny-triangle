@@ -1,11 +1,12 @@
 import React from 'react'
 import Triangle from './Triangle'
+import TriangleAuto from './TriangleAuto'
 
 class App extends React.Component {
 
   constructor(props) {
     super(props)
-    this.state = {maxLevel: 0}
+    this.state = {maxLevel: 0, auto:false}
   }
 
   increaseMaxLevel() {
@@ -13,12 +14,15 @@ class App extends React.Component {
           this.setState({maxLevel: newMaxLevel})
       }
 
-      decreaseMaxLevel(){
+  decreaseMaxLevel(){
               const newMaxLevel = this.state.maxLevel - 1;
               this.setState({maxLevel: newMaxLevel})
           }
-      reset(){
+  reset(){
               this.setState({maxLevel: 0})
+          }
+  toggleAuto(){
+              this.setState({auto: !this.state.auto})
           }
 
   render() {
@@ -30,20 +34,36 @@ class App extends React.Component {
         minY: 0,
         maxY: this.props.height
     };
-
+if (this.state.auto == false) {
     return (
         <div>
             <div>
                 <svg width={this.props.width} height={this.props.height}>
-                    <Triangle data={data}/>
+                <Triangle data={data}/>
                 </svg>
             </div>
-            <button onClick={()=>this.increaseMaxLevel()}> Level Up </button>
+            <button onClick={this.increaseMaxLevel.bind(this)}> Level Up </button>
             <button onClick={()=>this.decreaseMaxLevel()}> Level Down </button>
             <button onClick={()=>this.reset()}> Reset </button>
-            <button onClick={()=>this.decreaseMaxLevel()}> Auto </button>
+            <button onClick={()=>this.toggleAuto()}> Auto </button>
         </div>
     )
+  }
+  else {
+
+
+
+
+    return (
+          <div>
+              <div>
+                  <svg width={this.props.width} height={this.props.height}>
+                  <TriangleAuto data={data}/>
+                  </svg>
+              </div>
+              <button onClick={()=>this.toggleAuto()}> {!this.state.auto ? "Auto" : "Exit Auto"} </button>
+          </div>
+      )}
   }
 
 }
