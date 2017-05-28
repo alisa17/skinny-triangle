@@ -32,40 +32,24 @@ class App extends React.Component {
         minX: 0,
         maxX: this.props.width,
         minY: 0,
-        maxY: this.props.height
+        maxY: this.props.height,
+        auto: this.state.auto
     };
-if (this.state.auto == false) {
+
     return (
         <div>
             <div>
                 <svg width={this.props.width} height={this.props.height}>
-                <Triangle data={data}/>
+                <Triangle auto = {this.state.auto} data={data}/>
                 </svg>
             </div>
             <button onClick={this.increaseMaxLevel.bind(this)}> Level Up </button>
             <button onClick={()=>this.decreaseMaxLevel()}> Level Down </button>
             <button onClick={()=>this.reset()}> Reset </button>
-            <button onClick={()=>this.toggleAuto()}> Auto </button>
+            <button onClick={()=>this.toggleAuto()}> {!this.state.auto ? "Auto" : "Exit Auto"} </button>
         </div>
     )
   }
-  else {
-
-
-
-
-    return (
-          <div>
-              <div>
-                  <svg width={this.props.width} height={this.props.height}>
-                  <TriangleAuto data={data}/>
-                  </svg>
-              </div>
-              <button onClick={()=>this.toggleAuto()}> {!this.state.auto ? "Auto" : "Exit Auto"} </button>
-          </div>
-      )}
-  }
-
 }
 
 
